@@ -7,7 +7,7 @@ const MovieDetail = () => {
 console.log(params.movieId);
 
     return <section>
-        <h1>Movie Detail</h1>
+        <h1>Movie {params.movieId} Detail</h1>
     </section>
 }
 

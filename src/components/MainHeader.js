@@ -19,11 +19,13 @@ function MainHeader() {
         <Navbar.Collapse>
           <Nav>
           <Nav.Link href='/home'>Home</Nav.Link>
-            <NavDropdown title='Movies'>
+            
+            {/* <NavDropdown title='Movies'>
               <NavDropdown.Item href='/movies/comedy'>Comedy</NavDropdown.Item>
               <NavDropdown.Item href='/movies/action'>Action</NavDropdown.Item>
               <NavDropdown.Item href='/movies/horror'>Horror</NavDropdown.Item>
-            </NavDropdown>
+            </NavDropdown> */}
+            <Nav.Link href='/movies'>Movies</Nav.Link>
             <Nav.Link href='/snacks'>Snacks</Nav.Link>
             <Nav.Link href='/contact'>Contact Us</Nav.Link>
           </Nav>
