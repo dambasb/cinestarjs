@@ -7,6 +7,7 @@ import Snacks from "./pages/Snacks";
 import Contact from "./pages/Contact";
 import MainHeader from "./components/MainHeader";
 import MovieDetail from "./pages/MovieDetail";
+import Order from "./pages/Order";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/order">
+            <Order />
           </Route>
           <Route path="/movies" exact>
             <Movies />

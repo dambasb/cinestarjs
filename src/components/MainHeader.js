@@ -19,6 +19,7 @@ function MainHeader() {
         <Navbar.Collapse>
           <Nav>
           <Nav.Link href='/home'>Home</Nav.Link>
+          <Nav.Link href='/order'>Order</Nav.Link>
             
             {/* <NavDropdown title='Movies'>
               <NavDropdown.Item href='/movies/comedy'>Comedy</NavDropdown.Item>

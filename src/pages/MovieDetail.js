@@ -1,13 +1,15 @@
 import { useParams } from 'react-router-dom';
+import MoviesDb from '../database/MoviesDb';
 
 const MovieDetail = () => {
 
     const params = useParams();
 
-console.log(params.movieId);
-
+    const movie = MoviesDb.find(quote => params.movieId);
     return <section>
-        <h1>Movie {params.movieId} Detail</h1>
+        <h1>{movie.title}</h1>
+        
+        <p>{movie.body}</p>
     </section>
 }
 
