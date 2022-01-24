@@ -15,3 +15,7 @@ code {
 .card {
   margin-bottom: 25px;
 }
+
+.active {
+  display: none;
+}
