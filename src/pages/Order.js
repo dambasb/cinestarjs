@@ -4,14 +4,11 @@ import "react-dropdown-now/style.css";
 import React, { useState } from "react";
 
 const Order = () => {
-  // const setMovie = {
-  //   title:'test'
-  // };
-  const [enteredTitle, setEnteredTitle] = useState("");
 
-  
+  const [enteredTitle, setEnteredTitle] = useState("");
   const [show, setShow] = useState(false);
-  const onClick = () => setShow(true);
+  const getShow = () => setShow(true);
+  const [enteredAmount, setEnteredAmount] = useState(1);
   var showClass = !show ? 'active' : '';
   const movieDropdown = MoviesDb.map((a) => a.title);
 
@@ -25,9 +22,21 @@ const Order = () => {
     const setMovie = {
       title: movie.title,
     };
-    onClick();
+    getShow();
   };
+
+  const getAmount = (event) => {
+    console.log('Click:'+ event.target.value);
+    setEnteredAmount(event.target.value);
+    //const enteredAmount = event.target.value;
+    console.log(enteredAmount);
+  }
   const movie = MoviesDb.find((quote) => enteredTitle);
+
+  const pay = () => {
+    alert("Enjoy the movie!")
+  }
+
   return (
     <div className="row">
       <div className="col-sm-9">
@@ -49,17 +58,21 @@ const Order = () => {
           <p>{show ? movie.price : null} Kn</p>
           <label>
             How many tickets do you want?:
-            <input type="number" name="amount" min="1" />
+            <input type="number" min="1" value={enteredAmount} onChange={getAmount} />
           </label>
-          <input type="submit" value="Add" />
+
+          <p>{enteredAmount}</p>
         </div>
       </div>
       <div className="col-sm-3">
         <h1>Bill</h1>
         <p className={showClass}>
-          {show ? movie.title : null} - {show ? ticketAmount : null} x ticket
+          {show ? movie.title : null} - {show ? enteredAmount : null} x ticket
         </p>
         <p className={showClass}>{show ? movie.price : null} Kn</p>
+        <h3>Total</h3>
+        <p>{show ? movie.price * enteredAmount : null} Kn</p>
+        <button onClick={pay}>Pay</button>
       </div>
     </div>
   );
