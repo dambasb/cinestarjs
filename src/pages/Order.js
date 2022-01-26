@@ -47,7 +47,6 @@ const Order = () => {
           options={movieDropdown}
           onChange={titleChange}
         />
-        <p>{show ? "SHOW" : "HIDE"}</p>
 
         <div className={showClass}>
           <h5>{show ? movie.title : null}</h5>
@@ -61,7 +60,6 @@ const Order = () => {
             <input type="number" min="1" value={enteredAmount} onChange={getAmount} />
           </label>
 
-          <p>{enteredAmount}</p>
         </div>
       </div>
       <div className="col-sm-3">
@@ -70,9 +68,9 @@ const Order = () => {
           {show ? movie.title : null} - {show ? enteredAmount : null} x ticket
         </p>
         <p className={showClass}>{show ? movie.price : null} Kn</p>
-        <h3>Total</h3>
-        <p>{show ? movie.price * enteredAmount : null} Kn</p>
-        <button onClick={pay}>Pay</button>
+        <h3 className={showClass} >Total</h3>
+        <p className={showClass} >{show ? movie.price * enteredAmount : null} Kn</p>
+        <button className={showClass} onClick={pay}>Pay</button>
       </div>
     </div>
   );
