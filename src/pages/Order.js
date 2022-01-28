@@ -12,16 +12,12 @@ const Order = () => {
   var showClass = !show ? 'active' : '';
   const movieDropdown = MoviesDb.map((a) => a.title);
 
-  const ticketAmount = 1;
 
   const titleChange = (event) => {
     console.log(event);
     setEnteredTitle(event.value);
     const movie = MoviesDb.find((quote) => enteredTitle);
     console.log(movie);
-    const setMovie = {
-      title: movie.title,
-    };
     getShow();
   };
 

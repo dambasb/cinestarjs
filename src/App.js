@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import MainHeader from "./components/MainHeader";
 import MovieDetail from "./pages/MovieDetail";
 import Order from "./pages/Order";
+import Order2 from "./pages/Order2";
 
 function App() {
   return (
@@ -18,8 +19,11 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <Route path="/order">
+          <Route path="/order" exact>
             <Order />
+          </Route>
+          <Route path="/order2">
+            <Order2 />
           </Route>
           <Route path="/movies" exact>
             <Movies />
