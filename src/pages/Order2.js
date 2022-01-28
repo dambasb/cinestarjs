@@ -83,8 +83,33 @@ function PageOne({ data, update }) {
 
   const seatList = Seats;
 
-  const takeSeat = (id) => {
-    console.log(id);
+  const [seatsData, setSeatsData] = useState({
+    id: null,
+    seats: [
+      {
+        id: null,
+        type: null,
+        css: null,
+      },
+    ],
+  });
+
+  const takeSeat = (rowId, seatId) => {
+
+    // Select seat
+    const toogleSeat = document.getElementById(seatId)
+
+    /**
+     *  If sit is not selected add class "selected" to it
+     * 
+     *  else remove class "selected"
+     * 
+     */
+    if (toogleSeat.className === "seat") {
+      toogleSeat.className = "seat selected";  
+    } else {
+      toogleSeat.classList.remove("selected");  
+    }    
   };
 
   return (
@@ -122,14 +147,18 @@ function PageOne({ data, update }) {
           {seatList.map((seat) => {
             // Map all row
             return (
-              <div key={seat.row} className="row">
+              <div key={seat.id} className="row">
                 {seat.seats.map((singleSeat) => {
+   
                   // Map and display all seats
                   return (
+
+                    
                     <div
+                    id={singleSeat.id}
                       key={singleSeat.id}
                       className={singleSeat.css}
-                      onClick={(e) => takeSeat(singleSeat.id)}
+                      onClick={(e) => takeSeat(seat.id, singleSeat.id)}
                     >
                       {singleSeat.row}
                     </div>
