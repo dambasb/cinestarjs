@@ -213,7 +213,7 @@ export const Seats = [
         css: "seat"
       },
       {
-        id: 30,
+        id: 40,
         type: "free",
         css: "seat"
       },
