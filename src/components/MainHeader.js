@@ -17,7 +17,6 @@ function MainHeader() {
           <Nav>
             <Nav.Link href="/home">Home</Nav.Link>
             <Nav.Link href="/order">Order</Nav.Link>
-            <Nav.Link href="/order2">Order2</Nav.Link>
             <Nav.Link href="/movies">Movies</Nav.Link>
             <Nav.Link href="/snacks">Snacks</Nav.Link>
             <Nav.Link href="/contact">Contact Us</Nav.Link>

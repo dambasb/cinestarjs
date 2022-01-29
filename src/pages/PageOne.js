@@ -2,10 +2,10 @@ import MoviesDb from "../database/MoviesDb";
 import Select from "react-select";
 import "react-dropdown-now/style.css";
 import React, { useState } from "react";
-import "./Order.css";
+import "./PageOne.css";
 import { Seats } from "../database/Seats";
 
-const PageOne = ({ childToParent }) => {
+const PageOne = ({ childToParent, goNextPage }) => {
   const [enteredTitle, setEnteredTitle] = useState(MoviesDb.label);
   const [moviePrice, setMoviePrice] = useState(MoviesDb.price);
   const [show, setShow] = useState(false);
@@ -42,15 +42,15 @@ const PageOne = ({ childToParent }) => {
       setAmountOfSeats(amountOfSeats - 1);
     }
   };
-  const data = amountOfSeats;
+
   return (
     <div>
-      <button onClick={() => childToParent(data)}>Click Child</button>
+
       <h5>Which movie would you like to watch?</h5>
       <Select options={MoviesDb} onChange={getEnteredTitle} />
       {moviePrice && (
-        <p>
-          Price of Movie '{enteredTitle}' is {moviePrice}$
+        <p className="priceOfMovie">
+          Price of Movie <b>'{enteredTitle}'</b> is <b>{moviePrice} $</b>.
         </p>
       )}
 
@@ -97,13 +97,15 @@ const PageOne = ({ childToParent }) => {
             })}
           </div>
           <div>
-            <p>
-              You have selected seats {amountOfSeats} for{" "}
-              {moviePrice * amountOfSeats}$
+            <p className="priceOfMovie">
+              You have selected seats <b>{amountOfSeats}</b> for
+              <b>{moviePrice * amountOfSeats} $</b>.
             </p>
           </div>
         </div>
       </div>
+
+      {moviePrice && <button className="btn btn-primary" disabled={amountOfSeats<= 0} onClick={() => {childToParent(amountOfSeats, moviePrice, enteredTitle);goNextPage()}}>Order</button>}
     </div>
   );
 };
