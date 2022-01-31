@@ -5,13 +5,20 @@ export default class PageTwo extends Component {
     super(props);
     this.state = {
       isPayed: false,
+      value: ''
     };
+    this.onChange = this.onChange.bind(this)
   }
-  render() {
-    const getData = (event) => {
-      console.log(event.value);
-    };
 
+  onChange = (e) => {
+    console.log(e)
+    const re = /^[0-9\b]+$/;
+    if (e.target.value === '' || re.test(e.target.value)) {
+       this.setState({value: e.target.value})
+    }
+ }
+  render() {
+  
     const Submit = () => {};
 
     return (
@@ -26,7 +33,7 @@ export default class PageTwo extends Component {
 
           <label>
             <h5>Enter your Fake Card Id</h5>
-            <input type="text" min="1" onChange={getData} />
+            <input type="text" minLength={12} maxLength={12} value={this.state.value} onChange={this.onChange} />
           </label>
 
           <button type="submit" className="btn btn-primary" onClick={Submit}>
