@@ -8,17 +8,11 @@ import { Seats } from "../database/Seats";
 const PageOne = ({ childToParent, goNextPage }) => {
   const [enteredTitle, setEnteredTitle] = useState(MoviesDb.label);
   const [moviePrice, setMoviePrice] = useState(MoviesDb.price);
-  const [show, setShow] = useState(false);
-  const getShow = () => setShow(true);
 
-  var showClass = !show ? "hide" : "active";
-
+  // Get values from Select element
   const getEnteredTitle = (e) => {
-    console.log(e);
     setEnteredTitle(e.label);
     setMoviePrice(e.price);
-    getShow();
-    console.log("show", show);
   };
 
   const seatList = Seats;
@@ -29,7 +23,7 @@ const PageOne = ({ childToParent, goNextPage }) => {
     const toogleSeat = document.getElementById(seatId);
 
     /**
-     *  If sit is not selected add class "selected" to it and add seat
+     *  If sit is not selected add class "selected" to it and add seat to
      *
      *  else remove class "selected" and remove seat
      *
@@ -54,7 +48,7 @@ const PageOne = ({ childToParent, goNextPage }) => {
         </p>
       )}
 
-      <div className={showClass}>
+      <div className={!enteredTitle ? 'hide':''}>
         <h5>Which seat do you want?</h5>
         <div className="groupSeats">
           <ul className="showcase ">

@@ -94,8 +94,8 @@ export const Seats = [
       },
       {
         id: 18,
-        type: "free",
-        css: "seat"
+        type: "taken",
+        css: "seat taken"
       },
       {
         id: 19,
@@ -154,13 +154,13 @@ export const Seats = [
       },
       {
         id: 29,
-        type: "free",
-        css: "seat"
+        type: "taken",
+        css: "seat taken"
       },
       {
         id: 30,
-        type: "free",
-        css: "seat"
+        type: "taken",
+        css: "seat taken"
       },
     ],
   },
@@ -199,13 +199,13 @@ export const Seats = [
       },
       {
         id: 37,
-        type: "free",
-        css: "seat"
+        type: "taken",
+        css: "seat taken"
       },
       {
         id: 38,
-        type: "free",
-        css: "seat"
+        type: "taken",
+        css: "seat taken"
       },
       {
         id: 39,
