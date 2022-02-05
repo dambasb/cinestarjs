@@ -1,49 +1,30 @@
-import MovieItem from "../components/MovieItem";
-
-import "./Movies.css";
 import MoviesDb from "../database/MoviesDb";
+import { useState } from "react";
+import ListMovies from "../components/ListMovies";
+import Pagination from "../components/Pagination";
 
 const Movies = (props) => {
-  window.addEventListener("DOMContentLoaded", () => {
-    const listItems = MoviesDb;
-    const listElement = document.getElementById("list");
-    const paginationElement = document.getElementById("pagination");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [moviesPerPage, setMoviesPerPage] = useState(5);
+  const movies = MoviesDb;
 
-    let currentPage = 1;
-    let rows = 5;
-    const DisplayList = (items, wrapper, rowsPerPage, page) => {
-      console.log("func", listItems, listElement, rows, currentPage);
-      wrapper.innerHTML = "";
-      page--;
+  // Get current movies
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
-      let start = rowsPerPage * page;
-      let end = start + rowsPerPage;
-      let paginatedItems = items.slice(start, end);
-
-      console.log(paginatedItems);
-      for (let i = start; i < paginatedItems.length; i++) {
-        console.log(items[i]);
-        let item = items[i];
-
-        let itemElement = document.createElement("div");
-        itemElement.classList.add("item");
-        itemElement.innerText = item.label;
-
-        wrapper.appendChild(itemElement);
-      }
-    };
-
-    DisplayList(listItems, listElement, rows, currentPage);
-  });
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div>
       <h1>Movies</h1>
-
-      <main>
-        <div className="list" id="list"></div>
-        <div className="pagination" id="pagination"></div>
-      </main>
+      <ListMovies movies={currentMovies}></ListMovies>
+      <Pagination
+        moviesPerPage={moviesPerPage}
+        totalMovies={movies.length}
+        paginate={paginate}
+      ></Pagination>
     </div>
   );
 };
