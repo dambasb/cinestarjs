@@ -9,9 +9,7 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
    * round up soo that we dont lose items on last page
    */
   for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
-    console.log(1);
     pageNumbers.push(i);
-    console.log(pageNumbers);
   }
 
   return (

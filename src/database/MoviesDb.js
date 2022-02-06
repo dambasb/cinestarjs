@@ -159,7 +159,6 @@ const MoviesDb = [
       available: 10,
     },
   },
-  ,
   {
     id: 17,
     label: "Spider-Man: No Way Home",
