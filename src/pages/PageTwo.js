@@ -11,7 +11,6 @@ export default class PageTwo extends Component {
   }
 
   onChange = (e) => {
-    console.log(e)
     const re = /^[0-9\b]+$/;
     if (e.target.value === '' || re.test(e.target.value)) {
        this.setState({value: e.target.value})
@@ -19,7 +18,9 @@ export default class PageTwo extends Component {
  }
   render() {
   
-    const Submit = () => {};
+    const Submit = () => {
+      this.state.isPayed = true;
+    };
 
     return (
       <div>

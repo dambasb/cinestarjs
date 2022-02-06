@@ -1,7 +1,6 @@
 const Home = () => {
   const goToOrder = () => {
-    console.log(22);
-    window.location.assign('/order');
+    window.location.assign("/order");
   };
   return (
     <section>

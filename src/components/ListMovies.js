@@ -1,7 +1,6 @@
 import React from "react";
 
 const ListMovies = ({movies}) => {
-console.log(movies);
 
     return (
         <ul className="list-group">
