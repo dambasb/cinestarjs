@@ -7,8 +7,7 @@ const MovieDetail = () => {
 
     const movie = MoviesDb.find(quote => params.movieId);
     return <section>
-        <h1>{movie.title}</h1>
-        
+        <h1>{movie.label}</h1>
         <p>{movie.body}</p>
     </section>
 }
