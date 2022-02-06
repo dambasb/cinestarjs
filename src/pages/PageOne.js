@@ -2,7 +2,7 @@ import MoviesDb from "../database/MoviesDb";
 import Select from "react-select";
 import "react-dropdown-now/style.css";
 import React, { useState } from "react";
-import "./PageOne.css";
+import "../style/PageOne.css";
 import { Seats } from "../database/Seats";
 
 const PageOne = ({ childToParent, goNextPage }) => {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Order.css";
+import "../style/Order.css";
 import PageOne from "./PageOne";
 import PageTwo from "./PageTwo";
 

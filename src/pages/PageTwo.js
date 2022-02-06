@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./Order.css";
+import "../style/Order.css";
 export default class PageTwo extends Component {
   constructor(props) {
     super(props);
