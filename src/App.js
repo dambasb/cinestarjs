@@ -1,4 +1,3 @@
-import "./App.css";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Home from "./pages/Home";
 import Movies from "./pages/Movies";
@@ -6,6 +5,7 @@ import MainHeader from "./components/MainHeader";
 import MovieDetail from "./pages/MovieDetail";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
+import "./App.css";
 
 function App() {
   return (

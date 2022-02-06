@@ -1,12 +1,9 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import '../style/ListMovies.css';
 
 const ListMovies = ({movies}) => {
 
 const goToSingleMovie = (id) => {
-    
-    console.log(id)
     window.location = '/movies/movie-detail/' + id;
 }
     return (

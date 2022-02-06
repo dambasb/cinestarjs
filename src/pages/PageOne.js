@@ -37,9 +37,11 @@ const PageOne = ({ childToParent, goNextPage }) => {
     }
   };
 
+  // TODO Make form
+  // TODO Preselect movie when is clicked on Movie Details page
+
   return (
     <div>
-
       <h5>Which movie would you like to watch?</h5>
       <Select options={MoviesDb} onChange={getEnteredTitle} />
       {moviePrice && (
@@ -48,7 +50,7 @@ const PageOne = ({ childToParent, goNextPage }) => {
         </p>
       )}
 
-      <div className={!enteredTitle ? 'hide':''}>
+      <div className={!enteredTitle ? "hide" : ""}>
         <h5>Which seat do you want?</h5>
         <div className="groupSeats">
           <ul className="showcase ">
@@ -99,7 +101,18 @@ const PageOne = ({ childToParent, goNextPage }) => {
         </div>
       </div>
 
-      {moviePrice && <button className="btn btn-primary" disabled={amountOfSeats<= 0} onClick={() => {childToParent(amountOfSeats, moviePrice, enteredTitle);goNextPage()}}>Order</button>}
+      {moviePrice && (
+        <button
+          className="btn btn-primary"
+          disabled={amountOfSeats <= 0}
+          onClick={() => {
+            childToParent(amountOfSeats, moviePrice, enteredTitle);
+            goNextPage();
+          }}
+        >
+          Order
+        </button>
+      )}
     </div>
   );
 };

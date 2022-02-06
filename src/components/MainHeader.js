@@ -1,13 +1,17 @@
+import { Nav, Navbar } from "react-bootstrap";
 import logo from "../logo.svg";
 import "../App.css";
-import { Nav, Navbar } from "react-bootstrap";
 
 function MainHeader() {
+
+  const goHome = () => {
+    window.location = '/home';
+  }
   return (
     <div>
       <Navbar bg="dark" variant="dark" sticky="top" expand="lg">
-        <Navbar.Brand>
-          <img src={logo} width={40} height={40} href="home"></img>
+        <Navbar.Brand  onClick={goHome} className="cursor">
+          <img src={logo} width={40} height={40}></img>
           cinestarJS
         </Navbar.Brand>
 
