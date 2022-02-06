@@ -6,72 +6,57 @@ const Contact = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredMessage, setEnteredMessage] = useState("");
 
-  const [enteredNameIsValid, setEnteredNameIsValid] = useState(false);
-  const [enteredEmailIsValid, setEnteredEmailIsValid] = useState(false);
-  const [enteredMessageIsValid, setEnteredMessageIsValid] = useState(false);
-
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
   const [enteredMessageTouched, setEnteredMessageTouched] = useState(false);
 
+  const enteredNameIsValid = enteredName.trim() !== "";
+  const enteredEmailIsValid = enteredEmail.trim() !== "";
+  const enteredMessageIsValid = enteredMessage.trim() !== "";
+
+  // Change Input Handlers
   const nameInputChangeHandler = (e) => {
     setEnteredName(e.target.value);
-    if (e.target.value.trim() !== "") {
-      setEnteredNameIsValid(true);
-    }
-  };
-  const emailInputChangeHandler = (e) => {
-    setEnteredEmail(e.target.value);
-    if (e.target.value.trim() !== "") {
-      setEnteredEmailIsValid(true);
-    }
-  };
-  const messageInputChangeHandler = (e) => {
-    setEnteredMessage(e.target.value);
-    if (e.target.value.trim() !== "") {
-      setEnteredMessageIsValid(true);
-    }
   };
 
+  const emailInputChangeHandler = (e) => {
+    setEnteredEmail(e.target.value);
+  };
+
+  const messageInputChangeHandler = (e) => {
+    setEnteredMessage(e.target.value);
+  };
+
+  // Input Blur Handlers
   const nameInputBlurHandler = (e) => {
     setEnteredNameTouched(true);
-    if (enteredName.trim() === "") {
-      setEnteredNameIsValid(false);
-    }
   };
 
   const emailInputBlurHandler = (e) => {
     setEnteredEmailTouched(true);
-    if (enteredEmail.trim() === "") {
-      setEnteredEmailIsValid(false);
-    }
   };
 
   const messageInputBlurHandler = (e) => {
     setEnteredMessageTouched(true);
-    if (enteredMessage.trim() === "") {
-      setEnteredMessageIsValid(false);
-    }
   };
 
+  // Submit Form
   const formSubmissionHandler = (e) => {
     e.preventDefault();
 
-    if (
-      enteredName.trim() === "" &&
-      enteredName.trim() === "" &&
-      enteredMessage.trim() === ""
-    ) {
+    if (!enteredNameIsValid && !enteredEmailIsValid && !enteredMessageIsValid) {
       return;
     }
 
-    setEnteredNameIsValid(true);
-    setEnteredEmailIsValid(true);
-    setEnteredMessageIsValid(true);
+    console.log('Name :', enteredName, 'Email :', enteredEmail, 'Message :', enteredMessage);
 
-    console.log(enteredName);
-    console.log(enteredEmail);
-    console.log(enteredMessage);
+
+    setEnteredName('');
+    setEnteredEmail('');
+    setEnteredMessage('');
+    setEnteredNameTouched(false);
+    setEnteredEmailTouched(false);
+    setEnteredMessageTouched(false);
   };
 
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
@@ -104,7 +89,12 @@ const Contact = () => {
       </div>
       <div className={emailInputClasses}>
         <label htmlFor="email">Your Email</label>
-        <input type="text" id="email" onChange={emailInputChangeHandler} onBlur={emailInputBlurHandler} />
+        <input
+          type="text"
+          id="email"
+          onChange={emailInputChangeHandler}
+          onBlur={emailInputBlurHandler}
+        />
         {emailInputIsInvalid && (
           <p className="error-text">Please enter your email.</p>
         )}
