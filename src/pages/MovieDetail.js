@@ -6,6 +6,9 @@ const MovieDetail = () => {
     const params = useParams();
 
     const movie = MoviesDb.find(quote => params.movieId);
+
+    // TODO Make Buy btn 
+
     return <section>
         <h1>{movie.label}</h1>
         <p>{movie.body}</p>
