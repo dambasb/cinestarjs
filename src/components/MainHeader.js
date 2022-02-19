@@ -23,6 +23,7 @@ function MainHeader() {
             <Nav.Link href="/order">Order</Nav.Link>
             <Nav.Link href="/movies">Movies</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
+            <Nav.Link href="/test">Test</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

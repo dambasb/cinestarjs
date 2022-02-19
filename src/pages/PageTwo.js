@@ -6,7 +6,6 @@ const PageTwo = ({ bill, seats, movie }) => {
   const [cardValue, setCardValue] = useState("");
 
   // TODO Make validation
-  // TODO Hide back btn if payed
   // TODO Make form
 
   const onChange = (e) => {

@@ -6,6 +6,7 @@ import MovieDetail from "./pages/MovieDetail";
 import Order from "./pages/Order";
 import Contact from "./pages/Contact";
 import "./App.css";
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/test">
+            <Test />
           </Route>
         </Switch>
       </div>
